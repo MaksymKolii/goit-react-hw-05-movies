@@ -5,8 +5,8 @@ export const Movies = () => {
     const array = await Api.fetchMoviesByName('Jack+Reacher');
     const arr = await Api.fetchMostPopular();
 
-    console.log(array);
-    console.log(arr);
+    // console.log(array);
+    // console.log(arr);
   }
 
   getMovies();
