@@ -3,9 +3,9 @@ import axios from 'axios';
 const URL = 'https://api.themoviedb.org/3/movie/550?';
 const searchParams = new URLSearchParams({
   key: 'cf140a587ec927271eacbad378897741',
-  image_type: 'photo',
-  orientation: 'horizontal',
-  safesearch: true,
+//   image_type: 'photo',
+//   orientation: 'horizontal',
+//   safesearch: true,
 });
 
 //* Можно так ===========================================================================
