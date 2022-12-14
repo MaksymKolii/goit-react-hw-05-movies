@@ -13,9 +13,5 @@ export const Movies = () => {
 
   getMovies();
 
-  return (
-    <main>
-      <div>986g96g9og</div>
-    </main>
-  );
+  return <div>986g96g9og</div>;
 };
