@@ -8,11 +8,12 @@ export const Home = () => {
 
   const array = getMovies();
 
-  array.map(({title, id})=>{
-    return console.log(title, id)
+  // array.map(({ title, id }) => {
+  //   return console.log(title, id);
 
-    
-  })
+  getMovies();
+
+  // });
 
   return (
     <main>
