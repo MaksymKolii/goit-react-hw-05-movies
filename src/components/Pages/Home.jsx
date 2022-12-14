@@ -1,17 +1,34 @@
+import { useState, useEffect } from 'react';
 import Api from '../Services/apiFetcher';
+
+import { Routes, Route, NavLink } from 'react-router-dom';
+
 export const Home = () => {
-  async function getMovies() {
-    const arr = await Api.fetchMostPopular();
+  const [movies, setMovies] = useState([]);
 
-    console.log(arr);
-  }
+  useEffect(() => {
+    // if (movies === null) {
+    //   return;
+    // }
+    async function getMovies() {
+      try {
+        const array = await Api.fetchMostPopular();
 
-  const array = getMovies();
+        console.log(array);
+
+        setMovies(array);
+        // setMovies(prevMovies => [...prevMovies, ...array]);
+
+        // setMovies(prevMovies => [...prevMovies, ...imagesMapper(array.hits)]);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    getMovies();
+  }, []);
 
   // array.map(({ title, id }) => {
   //   return console.log(title, id);
-
-  getMovies();
 
   // });
 
@@ -20,9 +37,9 @@ export const Home = () => {
       <h1>Trending today</h1>
 
       <ul>
-        {/* {array.map(({ id, title }) => {
-          return <li key={id}>{title}</li>;
-        })} */}
+        {movies.map(({ id, title }) => {
+          return <NavLink key={id}>{title}</NavLink>;
+        })}
       </ul>
     </main>
   );
