@@ -20,7 +20,7 @@ async function fetchMoviesByName(keyWord) {
 async function fetchMostPopular() {
   const search = `${URL}trending/movie/day?${searchParams}`;
 
-  const response = await axios.get(search);
+  const response = await axios(search);
 
   return response.data.results;
 }
@@ -29,7 +29,7 @@ async function fetchMovieDetails(movieId) {
 
   const response = await axios.get(search);
 
-  //(genres, id, poster_path, overview, tagline, vote_average)
+  //* нужно будет (genres, id, poster_path, overview, tagline, vote_average)
 
   return response.data;
 }
