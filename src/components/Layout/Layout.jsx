@@ -1,16 +1,19 @@
 import { Outlet } from 'react-router-dom';
 import { Navigation } from 'components/Navigation/Navigation';
+import { Container, Header } from './Layout.styled';
 
 export const Layout = () => {
   return (
-    <>
-      <header>
+    <Container>
+      <Header>
         <Navigation />
-      </header>
+      </Header>
+      {/* <Suspense fallback={<div>Loading page...</div>}> */}
       <main>
         <Outlet />
       </main>
-      <footer>Footer for example</footer>
-    </>
+
+      {/* </Suspense> */}
+    </Container>
   );
 };

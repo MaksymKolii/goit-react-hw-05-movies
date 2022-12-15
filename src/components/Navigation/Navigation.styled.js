@@ -9,12 +9,16 @@ export const Link = styled(NavLink)`
   font-weight: 500;
 
   &:hover,
-  &:focus {
+  &:focus,
+  &.active {
     color: tomato;
   }
 
-  &.active {
-    color: white;
+  /* &.active {
+    color: tomato;
     background-color: orangered;
-  }
+  } */
+`;
+export const NavItem = styled.ul`
+  display: flex;
 `;

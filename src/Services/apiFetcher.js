@@ -1,5 +1,5 @@
 import axios from 'axios';
-const URL = 'https://api.themoviedb.org/3/';
+axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
 const searchParams = new URLSearchParams({
   api_key: 'cf140a587ec927271eacbad378897741',
@@ -10,7 +10,7 @@ const searchParams = new URLSearchParams({
 });
 
 async function fetchMoviesByName(keyWord) {
-  const search = `${URL}search/movie?${searchParams}&query=${keyWord}`;
+  const search = `search/movie?${searchParams}&query=${keyWord}`;
 
   const response = await axios.get(search);
 
@@ -18,14 +18,14 @@ async function fetchMoviesByName(keyWord) {
 }
 
 async function fetchMostPopular() {
-  const search = `${URL}trending/movie/day?${searchParams}`;
+  const search = `trending/movie/day?${searchParams}`;
 
   const response = await axios(search);
 
   return response.data.results;
 }
-async function fetchMovieDetails(movieId) {
-  const search = `${URL}/movie/${movieId}?${searchParams}`;
+async function fetchMovieById(movieId) {
+  const search = `/movie/${movieId}?${searchParams}`;
 
   const response = await axios.get(search);
 
@@ -37,6 +37,6 @@ async function fetchMovieDetails(movieId) {
 const allAPIs = {
   fetchMoviesByName,
   fetchMostPopular,
-  fetchMovieDetails,
+  fetchMovieById,
 };
 export default allAPIs;
