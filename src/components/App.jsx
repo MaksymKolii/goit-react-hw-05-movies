@@ -20,7 +20,7 @@ export const App = () => {
             </Route> */}
           </Route>
         </Route>
-        {/* <Route path="*" element={<Home />} /> */}
+        <Route path="*" element={<Home />} />
       </Routes>
     </>
   );
