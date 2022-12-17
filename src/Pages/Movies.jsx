@@ -1,3 +1,5 @@
+import { useState, useEffect, useRef } from 'react';
+// import { useFetchMovie } from '../hooks/useFetchMovie';
 import Api from '../Services/apiFetcher';
 
 export const Movies = () => {

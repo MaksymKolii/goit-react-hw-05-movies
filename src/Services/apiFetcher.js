@@ -25,6 +25,7 @@ async function fetchMostPopular() {
   return response.data.results;
 }
 async function fetchMovieById(movieId) {
+  'https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US';
   const search = `/movie/${movieId}?${searchParams}`;
 
   const response = await axios.get(search);
@@ -34,9 +35,37 @@ async function fetchMovieById(movieId) {
   return response.data;
 }
 
+async function fetchActors(movieId) {
+  'https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>&language=en-US';
+  const search = `/movie/${movieId}/credits?${searchParams}`;
+
+  const response = await axios.get(search);
+
+  return response.data.cast;
+}
+
+async function fetchReviews(movieId) {
+  const search = `/movie/${movieId}/reviews?${searchParams}`;
+
+  const response = await axios.get(search);
+
+  return response.data;
+}
+
+async function fetchReviwOrActors(movieId, data) {
+  const search = `/movie/${movieId}/${data}?${searchParams}`;
+
+  const response = await axios.get(search);
+
+  return response.data;
+}
+
 const allAPIs = {
   fetchMoviesByName,
   fetchMostPopular,
   fetchMovieById,
+  fetchActors,
+  fetchReviews,
+  fetchReviwOrActors,
 };
 export default allAPIs;
