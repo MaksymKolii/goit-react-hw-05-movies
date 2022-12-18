@@ -15,6 +15,9 @@ export const Cast = () => {
   }, [movieId]);
 
   console.log(cast);
+  // cast.map(({ gender }) => {
+  //   return console.log('typeQff', typeof gender);
+  // });
   return (
     <>
       <ul>
@@ -31,7 +34,7 @@ export const Cast = () => {
                 width="100"
               ></img>
 
-              {{ gender } === 2 ? <p>Actress</p> : <p>Actor</p>}
+              {{ gender } === '2' ? <p>Actress</p> : <p>Actor</p>}
               <span>{name}</span>
             </li>
           ))}
