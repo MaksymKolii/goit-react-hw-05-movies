@@ -4,14 +4,25 @@ import Api from '../Services/apiFetcher';
 
 export const Cast = () => {
   const [cast, setCast] = useState(null);
+  // const [sex, setSex] = useState(1);
   const { movieId } = useParams();
 
   useEffect(() => {
-    try {
-      Api.fetchActors(movieId).then(setCast);
-    } catch (error) {
-      console.log(error);
+    async function getActors() {
+      try {
+        const res = await Api.fetchActors(movieId);
+        setCast(res);
+      } catch (error) {
+        console.log(error);
+      }
     }
+    getActors();
+
+    // try {
+    //   Api.fetchActors(movieId).then(setCast);
+    // } catch (error) {
+    //   console.log(error);
+    // }
   }, [movieId]);
 
   console.log(cast);
@@ -33,8 +44,9 @@ export const Cast = () => {
                 alt={name}
                 width="100"
               ></img>
+              <p>{{ gender } === 1 ? 'Actress' : 'Actor'}</p>
 
-              {{ gender } === '2' ? <p>Actress</p> : <p>Actor</p>}
+              {/* {{ gender } === 2 ? <p>Actress</p> : <p>Actor</p>} */}
               <span>{name}</span>
             </li>
           ))}

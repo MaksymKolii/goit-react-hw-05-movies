@@ -1,19 +1,36 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 // import { useFetchMovie } from '../hooks/useFetchMovie';
+import { Link } from 'react-router-dom';
 import Api from '../Services/apiFetcher';
 
 export const Movies = () => {
-  // async function getMovies() {
-  //   const array = await Api.fetchMoviesByName('Jack+Reacher');
-  //   const arr = await Api.fetchMostPopular();
-  //   const arrrr = await Api.fetchMovieById(555604);
+  const [movies, setMovies] = useState('');
+  const query = 'batman';
 
-  //   console.log('fetchMoviesByName', array);
-  //   console.log('fetchMostPopular', arr);
-  //   console.log('fetchMovieDetails', arrrr);
-  // }
+  useEffect(() => {
+    async function getMovies() {
+      try {
+        const res = await Api.fetchMoviesByName(query);
+        setMovies(res);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    getMovies();
+  }, []);
 
-  // getMovies();
+  console.log(movies);
 
-  return <div>Checkin is it work?</div>;
+  return (
+    <main>
+      <ul>
+        {movies &&
+          movies.map(({ id, title }) => (
+            <li key={id}>
+              <Link to={`/movies/${id}`}>{title}</Link>
+            </li>
+          ))}
+      </ul>
+    </main>
+  );
 };

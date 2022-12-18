@@ -14,7 +14,7 @@ async function fetchMoviesByName(keyWord) {
 
   const response = await axios.get(search);
 
-  return response.data;
+  return response.data.results;
 }
 
 async function fetchMostPopular() {
