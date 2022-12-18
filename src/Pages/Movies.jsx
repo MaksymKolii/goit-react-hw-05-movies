@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-// import { useFetchMovie } from '../hooks/useFetchMovie';
+import { useSearchParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Api from '../Services/apiFetcher';
 
 export const Movies = () => {
-  const [movies, setMovies] = useState('');
-  const query = 'batman';
+  const [movies, setMovies] = useState([]);
+  let [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get('moviename');
 
   useEffect(() => {
     async function getMovies() {
@@ -17,7 +18,7 @@ export const Movies = () => {
       }
     }
     getMovies();
-  }, []);
+  }, [query]);
 
   console.log(movies);
 
