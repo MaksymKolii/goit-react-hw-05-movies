@@ -4,8 +4,10 @@ import Api from '../Services/apiFetcher';
 
 export const Cast = () => {
   const [cast, setCast] = useState(null);
-  // const [sex, setSex] = useState(1);
+
   const { movieId } = useParams();
+
+  // const location = userLocation();
 
   useEffect(() => {
     async function getActors() {
@@ -17,15 +19,17 @@ export const Cast = () => {
       }
     }
     getActors();
-
-    // try {
-    //   Api.fetchActors(movieId).then(setCast);
-    // } catch (error) {
-    //   console.log(error);
-    // }
   }, [movieId]);
 
   console.log(cast);
+  const genderSwitcher = data => {
+    if (data === 2) {
+      return 'Actor';
+    }
+    if (data === 1) {
+      return 'Actress';
+    }
+  };
   // cast.map(({ gender }) => {
   //   return console.log('typeQff', typeof gender);
   // });
@@ -44,7 +48,8 @@ export const Cast = () => {
                 alt={name}
                 width="100"
               ></img>
-              <p>{{ gender } === 1 ? 'Actress' : 'Actor'}</p>
+              {/* <p>{{ gender } === 1 ? 'Actress' : 'Actor'}</p> */}
+              <p>{genderSwitcher(gender)}</p>
 
               {/* {{ gender } === 2 ? <p>Actress</p> : <p>Actor</p>} */}
               <span>{name}</span>

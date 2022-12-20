@@ -1,11 +1,13 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Api from '../Services/apiFetcher';
 
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export const Home = () => {
   const [movies, setMovies] = useState([]);
   // const isFirstRender = useRef(true);
+  const location = useLocation();
+  // console.log('useLocation -', location);
 
   useEffect(() => {
     // async function getMovies() {
@@ -39,7 +41,9 @@ export const Home = () => {
         {movies &&
           movies.map(({ id, title }) => (
             <li key={id}>
-              <Link to={`/movies/${id}`}>{title}</Link>
+              <Link to={`/movies/${id}`} state={{ from: location }}>
+                {title}
+              </Link>
             </li>
           ))}
       </ul>
