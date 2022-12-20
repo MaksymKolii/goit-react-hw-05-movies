@@ -7,10 +7,8 @@ import { Genres } from 'components/Genres/Genres';
 export const MovieDetails = () => {
   const movie = useFetchMovie();
   const navigate = useNavigate();
-  // console.log('useNavigate -', navigate);
 
   const location = useLocation();
-  // console.log('useLocationfromDetails -', location);
   const normalizeVotes = data => Math.round(data * 10) + '%';
   const normalizeYear = data => data.slice(0, 4);
   return (
