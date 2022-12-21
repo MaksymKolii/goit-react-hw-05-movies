@@ -36,7 +36,7 @@ export const MovieDetails = () => {
           alt={movie.title}
           width="300"
         ></img>
-        <h3>Genres</h3>
+
         <Genres genreArray={movie.genres} />
 
         <h3>Overview</h3>
@@ -48,7 +48,9 @@ export const MovieDetails = () => {
         <Link to={`/movies/${movie.id}/cast`} state={location.state}>
           Cast
         </Link>
-        <Link to={`/movies/${movie.id}/reviews`}>Reviews</Link>
+        <Link to={`/movies/${movie.id}/reviews`} state={location.state}>
+          Reviews
+        </Link>
         <Outlet />
       </>
     )

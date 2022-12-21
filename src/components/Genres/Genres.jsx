@@ -6,7 +6,11 @@ export const Genres = ({ genreArray }) => {
     return data.map(gen => gen.name).join(', ');
   };
   return (
-    <p>{`${commaGenres(genreArray)}`}</p>
+    <>
+      <h3>Genres</h3>
+      <p>{`${commaGenres(genreArray)}`}</p>
+    </>
+
     // <ul>
     //   {genreArray.map(({ id, name }) => (
     //     <li key={id}>{name}</li>

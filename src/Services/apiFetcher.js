@@ -49,16 +49,16 @@ async function fetchReviews(movieId) {
 
   const response = await axios.get(search);
 
-  return response.data;
+  return response.data.results;
 }
 
-async function fetchReviwOrActors(movieId, data) {
-  const search = `/movie/${movieId}/${data}?${searchParams}`;
+// async function fetchReviwOrActors(movieId, data) {
+//   const search = `/movie/${movieId}/${data}?${searchParams}`;
 
-  const response = await axios.get(search);
+//   const response = await axios.get(search);
 
-  return response.data;
-}
+//   return response.data;
+// }
 
 const allAPIs = {
   fetchMoviesByName,
@@ -66,6 +66,6 @@ const allAPIs = {
   fetchMovieById,
   fetchActors,
   fetchReviews,
-  fetchReviwOrActors,
+  // fetchReviwOrActors,
 };
 export default allAPIs;
