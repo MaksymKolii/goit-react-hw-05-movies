@@ -30,9 +30,6 @@ export const Cast = () => {
       return 'Actress';
     }
   };
-  // cast.map(({ gender }) => {
-  //   return console.log('typeQff', typeof gender);
-  // });
   return (
     <>
       <ul>
@@ -48,10 +45,7 @@ export const Cast = () => {
                 alt={name}
                 width="100"
               ></img>
-              {/* <p>{{ gender } === 1 ? 'Actress' : 'Actor'}</p> */}
               <p>{genderSwitcher(gender)}</p>
-
-              {/* {{ gender } === 2 ? <p>Actress</p> : <p>Actor</p>} */}
               <span>{name}</span>
             </li>
           ))}
