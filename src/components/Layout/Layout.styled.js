@@ -22,7 +22,7 @@ export const Container = styled.div`
   img {
     display: block;
     max-width: 100%;
-    height: auto;
+    height: 100%;
   }
   a {
     text-decoration: none;
