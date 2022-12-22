@@ -39,7 +39,7 @@ async function fetchActors(movieId) {
   'https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>&language=en-US';
   const search = `/movie/${movieId}/credits?${searchParams}`;
 
-  const response = await axios.get(search);
+  const response = await axios(search);
 
   return response.data.cast;
 }
