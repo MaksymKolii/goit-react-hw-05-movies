@@ -55,18 +55,19 @@ export const Movies = () => {
   };
 
   const formSubmit = data => {
-    // if (data !== query) {
-    //   setSearchParams(data);
-    //   setPage(1);
-    //   setMovies([]);
-    // }
-
-    if (data === query) {
-      return setSearchParams(data);
+    if (data !== query) {
+      setSearchParams(data);
+      setPage(1);
+      setMovies([]);
     }
     setSearchParams(data);
-    setPage(1);
-    setMovies([]);
+    // if (data === query) {
+    //   // setPage(page - 1);
+    //   return setSearchParams('');
+    // }
+    // setSearchParams(data);
+    // setPage(1);
+    // setMovies([]);
   };
 
   return (
