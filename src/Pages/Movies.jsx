@@ -3,48 +3,71 @@ import { Link, useSearchParams, useLocation } from 'react-router-dom';
 
 import Api from '../Services/apiFetcher';
 import { SearchForm } from 'components/Form/Form';
+import { Button } from 'components/ButtonLoadMore/Button';
+import { Loader } from 'components/Loader/Loader';
 
 export const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('moviename');
+  // const page = searchParams.get('page');
+
+  const [page, setPage] = useState(1);
+  const [isLoading, setIsloading] = useState(false);
+  const [showLoadMore, setShowLoadMore] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
-    if (query === null || query === '') {
+    if (!query) {
       return;
     }
-
     async function getMovies() {
+      setIsloading(true);
       try {
-        const res = await Api.fetchMoviesByName(query);
-        setMovies(res);
+        const array = await Api.fetchMoviesByName(query, page);
+
+        if (!array.total_results) {
+          alert(
+            'Sorry, there are no images matching your search query. Please try again.'
+          );
+        }
+        if (page === array.total_pages) {
+          alert('Last Page');
+        }
+        setShowLoadMore(page < array.total_pages);
+
+        console.log(array);
+        console.log(array.total_pages);
+
+        setMovies(prevMovies => [...prevMovies, ...array.results]);
       } catch (error) {
         console.log(error);
+      } finally {
+        setIsloading(false);
       }
     }
-
     getMovies();
-  }, [query, searchParams]);
+  }, [page, query]);
 
-  // console.log(movies);
-
-  const formSubmit = data => {
-    setSearchParams(data);
-    setMovies([]);
+  //*
+  const nextPage = () => {
+    setPage(prevPage => prevPage + 1);
   };
 
-  // const handleSubmit = ev => {
-  //   ev.preventDefault();
-  //   const form = ev.target;
-  //   const check = form.elements.something.value;
+  const formSubmit = data => {
+    // if (data !== query) {
+    //   setSearchParams(data);
+    //   setPage(1);
+    //   setMovies([]);
+    // }
 
-  //   if (check.trim() === '') {
-  //     return alert('nothing to search');
-  //   }
-  //   setSearchParams({ moviename: form.elements.something.value });
-  //   form.reset();
-  // };
+    if (data === query) {
+      return setSearchParams(data);
+    }
+    setSearchParams(data);
+    setPage(1);
+    setMovies([]);
+  };
 
   return (
     <main>
@@ -61,6 +84,11 @@ export const Movies = () => {
             </li>
           ))}
       </ul>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        showLoadMore && <Button onClick={nextPage} loading={isLoading} />
+      )}
     </main>
   );
 };

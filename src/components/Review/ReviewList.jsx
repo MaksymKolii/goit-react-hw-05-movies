@@ -8,7 +8,6 @@ import {
   ReviewsH5,
 } from './Review.styled';
 
-
 export const ReviewList = ({ reviews }) => {
   const timeReduser = data => {
     const year = data.slice(0, 10);

@@ -9,12 +9,12 @@ const searchParams = new URLSearchParams({
   //   safesearch: true,
 });
 
-async function fetchMoviesByName(keyWord) {
-  const search = `search/movie?${searchParams}&query=${keyWord}`;
+async function fetchMoviesByName(keyWord, page = 1) {
+  const search = `search/movie?${searchParams}&query=${keyWord}&page=${page}`;
 
   const response = await axios.get(search);
 
-  return response.data.results;
+  return response.data;
 }
 
 async function fetchMostPopular() {
