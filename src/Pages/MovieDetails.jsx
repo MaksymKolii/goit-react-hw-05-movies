@@ -11,7 +11,7 @@ import { Genres } from 'components/Genres/Genres';
 import { Loader } from 'components/Loader/Loader';
 
 export const MovieDetails = () => {
-  const [movie, setMovie] = useState([]);
+  const [movie, setMovie] = useState(null);
   const { movieId } = useParams();
   const isFirstRender = useRef(true);
   const [isLoading, setIsLoading] = useState(false);
@@ -59,14 +59,9 @@ export const MovieDetails = () => {
         <h2>
           {movie.title}
           <span>(</span>
-          {/* //! пришлось закоментить - выдает ошибку */}
-          {/* <span>{normalizeYear(movie.release_date)}</span> */}
 
-          {/* //! Так же - выдает ошибку*/}
-          {/* <span>{movie.release_date.slice(0, 4)}</span> */}
+          <span>{normalizeYear(movie.release_date)}</span>
 
-          {/*//* работает без сокращения даты */}
-          <span>{movie.release_date}</span>
           <span>)</span>
         </h2>
         <img
@@ -78,8 +73,7 @@ export const MovieDetails = () => {
           alt={movie.title}
           width="300"
         ></img>
-        {/*//! пришлось закоментить - выдает ошибку */}
-        {/* <Genres genreArray={movie.genres} /> */}
+        <Genres genreArray={movie.genres} />
         <h3>Overview</h3>
         <p>{movie.overview}</p>
         <h3>Tagline</h3>
