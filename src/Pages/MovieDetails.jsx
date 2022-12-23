@@ -1,14 +1,49 @@
-// import { useState, useEffect, useRef } from 'react';
-// import Api from '../Services/apiFetcher';
-import { Link, Outlet, useNavigate, useLocation } from 'react-router-dom';
-import { useFetchMovie } from '../hooks/useFetchMovie';
+import { useState, useEffect, useRef } from 'react';
+import Api from '../Services/apiFetcher';
+import {
+  Link,
+  Outlet,
+  useNavigate,
+  useLocation,
+  useParams,
+} from 'react-router-dom';
+// import { useFetchMovie } from '../hooks/useFetchMovie';
 import { Genres } from 'components/Genres/Genres';
 
 export const MovieDetails = () => {
-  const movie = useFetchMovie();
+  const [movie, setMovie] = useState([]);
   const navigate = useNavigate();
-
+  const { movieId } = useParams();
   const location = useLocation();
+  const isFirstRender = useRef(true);
+  const [isLoading, setIsLoading] = useState(false);
+
+  // useEffect(() => {
+  //   Api.fetchMovieById(movieId).then(setMovie);
+  // }, [movieId]);
+
+  useEffect(() => {
+    async function getMovie() {
+      setIsLoading(true);
+      try {
+        const res = await Api.fetchMovieById(movieId);
+
+        setMovie(res);
+        console.log(res);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    if (isFirstRender.current) {
+      getMovie();
+      isFirstRender.current = false;
+      return;
+    }
+  }, [movieId]);
+
   const normalizeVotes = data => Math.round(data * 10) + '%';
   const normalizeYear = data => data.slice(0, 4);
   return (
