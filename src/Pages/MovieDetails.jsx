@@ -80,8 +80,6 @@ export const MovieDetails = () => {
         ></img>
         {/*//! пришлось закоментить - выдает ошибку */}
         {/* <Genres genreArray={movie.genres} /> */}
-
-        <Genres genreArray={`${movie.genres}`} />
         <h3>Overview</h3>
         <p>{movie.overview}</p>
         <h3>Tagline</h3>
