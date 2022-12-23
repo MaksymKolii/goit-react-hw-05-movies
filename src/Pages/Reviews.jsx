@@ -34,7 +34,6 @@ export const Reviews = () => {
   return (
     <>
       {isLoading && <Loader />}
-      {/* {reviews && <ReviewList reviews={reviews} />} */}
 
       {reviews.length === 0 && !isLoading ? (
         <p> We don't have any reviews</p>

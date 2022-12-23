@@ -41,7 +41,8 @@ export const MovieDetails = () => {
     }
   }, [movieId]);
 
-  const normalizeVotes = data => Math.round(data * 10) + '%';
+  const normalizeVotes = ({ vote_average }) =>
+    Math.round(vote_average * 10) + '%';
   const normalizeYear = data => data.slice(0, 4);
   return (
     movie && (
@@ -58,7 +59,7 @@ export const MovieDetails = () => {
         <h2>
           {movie.title}
           <span>(</span>
-          <span>{normalizeYear(movie.release_date)}</span>
+          {/* <span>{movie.release_date.slice(0, 4)}</span> */}
           <span>)</span>
         </h2>
         <img
@@ -77,7 +78,8 @@ export const MovieDetails = () => {
         <p>{movie.overview}</p>
         <h3>Tagline</h3>
         <p>{movie.tagline}</p>
-        <p>User score: {normalizeVotes(movie.vote_average)}</p>
+
+        <p>User score: {normalizeVotes(movie)}</p>
         <h4>Additional information</h4>
         <Link to={`/movies/${movie.id}/cast`} state={location.state}>
           Cast
