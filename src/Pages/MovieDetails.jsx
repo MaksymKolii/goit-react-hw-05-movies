@@ -43,6 +43,7 @@ export const MovieDetails = () => {
 
   const normalizeVotes = ({ vote_average }) =>
     Math.round(vote_average * 10) + '%';
+
   const normalizeYear = data => data.slice(0, 4);
   return (
     movie && (
@@ -55,11 +56,17 @@ export const MovieDetails = () => {
           Go back
         </button>
         {isLoading && <Loader />}
-
         <h2>
           {movie.title}
           <span>(</span>
+          {/* //! пришлось закоментить - выдает ошибку */}
+          {/* <span>{normalizeYear(movie.release_date)}</span> */}
+
+          {/* //! Так же - выдает ошибку*/}
           {/* <span>{movie.release_date.slice(0, 4)}</span> */}
+
+          {/*//* работает без сокращения даты */}
+          <span>{movie.release_date}</span>
           <span>)</span>
         </h2>
         <img
@@ -71,14 +78,14 @@ export const MovieDetails = () => {
           alt={movie.title}
           width="300"
         ></img>
+        {/*//! пришлось закоментить - выдает ошибку */}
+        {/* <Genres genreArray={movie.genres} /> */}
 
-        <Genres genreArray={movie.genres} />
-
+        <Genres genreArray={`${movie.genres}`} />
         <h3>Overview</h3>
         <p>{movie.overview}</p>
         <h3>Tagline</h3>
         <p>{movie.tagline}</p>
-
         <p>User score: {normalizeVotes(movie)}</p>
         <h4>Additional information</h4>
         <Link to={`/movies/${movie.id}/cast`} state={location.state}>
