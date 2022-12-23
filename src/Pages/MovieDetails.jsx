@@ -7,20 +7,17 @@ import {
   useLocation,
   useParams,
 } from 'react-router-dom';
-// import { useFetchMovie } from '../hooks/useFetchMovie';
 import { Genres } from 'components/Genres/Genres';
+import { Loader } from 'components/Loader/Loader';
 
 export const MovieDetails = () => {
   const [movie, setMovie] = useState([]);
-  const navigate = useNavigate();
   const { movieId } = useParams();
-  const location = useLocation();
   const isFirstRender = useRef(true);
   const [isLoading, setIsLoading] = useState(false);
 
-  // useEffect(() => {
-  //   Api.fetchMovieById(movieId).then(setMovie);
-  // }, [movieId]);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     async function getMovie() {
@@ -56,6 +53,7 @@ export const MovieDetails = () => {
         >
           Go back
         </button>
+        {isLoading && <Loader />}
         <h2>
           {movie.title}
           <span>(</span>
