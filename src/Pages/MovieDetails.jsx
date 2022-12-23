@@ -54,12 +54,13 @@ export const MovieDetails = () => {
           Go back
         </button>
         {isLoading && <Loader />}
-        <h2>
+        <h2>{movie.title}</h2>
+        {/* <h2>
           {movie.title}
           <span>(</span>
           <span>{normalizeYear(movie.release_date)}</span>
           <span>)</span>
-        </h2>
+        </h2> */}
         <img
           src={
             movie.poster_path
@@ -76,7 +77,7 @@ export const MovieDetails = () => {
         <p>{movie.overview}</p>
         <h3>Tagline</h3>
         <p>{movie.tagline}</p>
-        <p>User score: {normalizeVotes(movie.vote_average)}</p>
+        {/* <p>User score: {normalizeVotes(movie.vote_average)}</p> */}
         <h4>Additional information</h4>
         <Link to={`/movies/${movie.id}/cast`} state={location.state}>
           Cast
