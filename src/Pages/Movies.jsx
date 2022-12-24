@@ -9,32 +9,32 @@ import { Loader } from 'components/Loader/Loader';
 export const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-  const query = searchParams.get('moviename');
-  // const page = searchParams.get('page');
+  const queryP = searchParams.get('moviename');
+  // const pageP = searchParams.get('page');
 
-  const [page, setPage] = useState(1);
+  const [pageP, setPage] = useState(1);
   const [isLoading, setIsloading] = useState(false);
   const [showLoadMore, setShowLoadMore] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
-    if (!query) {
+    if (!queryP) {
       return;
     }
     async function getMovies() {
       setIsloading(true);
       try {
-        const array = await Api.fetchMoviesByName(query, page);
+        const array = await Api.fetchMoviesByName(queryP, pageP);
 
         if (!array.total_results) {
           alert(
             'Sorry, there are no images matching your search query. Please try again.'
           );
         }
-        if (page === array.total_pages) {
+        if (pageP === array.total_pages && pageP > 1) {
           alert('Last Page');
         }
-        setShowLoadMore(page < array.total_pages);
+        setShowLoadMore(pageP < array.total_pages);
 
         console.log(array);
         console.log(array.total_pages);
@@ -47,28 +47,37 @@ export const Movies = () => {
       }
     }
     getMovies();
-  }, [page, query]);
+  }, [pageP, queryP]);
 
   //*
   const nextPage = () => {
     setPage(prevPage => prevPage + 1);
   };
 
-  const formSubmit = data => {
-    if (data !== query) {
+  const formSubmit = query => {
+    if (query !== queryP) {
       // setSearchParams(data);
       setPage(1);
-      // setMovies([]);
+      // setMovies([])
     }
-    // setSearchParams(data);
-    // if (data === query) {
-    //   // setPage(page - 1);
-    //   return setSearchParams('');
-    // }
-    setSearchParams(data);
+
+    setSearchParams(query);
     setPage(1);
     setMovies([]);
   };
+
+  // const nextPage = (ev) => {
+  //   setSearchParams({ query: queryP, page: pageP + 1 });
+
+  // };
+
+  // const formSubmit = query => {
+  //   if (queryP === query) {
+  //     return setSearchParams({ query, page: 1 });
+  //   }
+  //   setSearchParams({ query, page: 1 });
+  //   setMovies([]);
+  // };
 
   return (
     <main>
@@ -76,7 +85,7 @@ export const Movies = () => {
 
       <ul>
         {movies &&
-          query !== null &&
+          queryP !== null &&
           movies.map(({ id, title }) => (
             <li key={id}>
               <Link to={`/movies/${id}`} state={{ from: location }}>

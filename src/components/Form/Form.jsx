@@ -9,6 +9,7 @@ export const SearchForm = ({ formFunc }) => {
       return alert('Nothing to search');
     }
     formFunc({ moviename: form.elements.something.value });
+
     form.reset();
   };
   return (
