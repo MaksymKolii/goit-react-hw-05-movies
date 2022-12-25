@@ -5,12 +5,12 @@ import Api from '../Services/apiFetcher';
 import { SearchForm } from 'components/Form/Form';
 import { Button } from 'components/ButtonLoadMore/Button';
 import { Loader } from 'components/Loader/Loader';
+import { MoviesCardList } from '../components/MoviesCardList/MoviesCardList';
 
 export const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const queryP = searchParams.get('moviename');
-  // const pageP = searchParams.get('page');
 
   const [pageP, setPage] = useState(1);
   const [isLoading, setIsloading] = useState(false);
@@ -56,49 +56,25 @@ export const Movies = () => {
 
   const formSubmit = query => {
     if (query !== queryP) {
-      // setSearchParams(data);
+      setSearchParams(query);
       setPage(1);
-      // setMovies([])
+      setMovies([]);
     }
-
-    setSearchParams(query);
-    setPage(1);
-    setMovies([]);
+    if (query === queryP) {
+      return alert('they are equal');
+    }
   };
 
-  // const nextPage = (ev) => {
-  //   setSearchParams({ query: queryP, page: pageP + 1 });
-
-  // };
-
-  // const formSubmit = query => {
-  //   if (queryP === query) {
-  //     return setSearchParams({ query, page: 1 });
-  //   }
-  //   setSearchParams({ query, page: 1 });
-  //   setMovies([]);
-  // };
-
   return (
-    <main>
+    <>
       <SearchForm formFunc={formSubmit} />
+      {queryP !== null && <MoviesCardList movies={movies} />}
 
-      <ul>
-        {movies &&
-          queryP !== null &&
-          movies.map(({ id, title }) => (
-            <li key={id}>
-              <Link to={`/movies/${id}`} state={{ from: location }}>
-                {title}
-              </Link>
-            </li>
-          ))}
-      </ul>
       {isLoading ? (
         <Loader />
       ) : (
         showLoadMore && <Button onClick={nextPage} loading={isLoading} />
       )}
-    </main>
+    </>
   );
 };
