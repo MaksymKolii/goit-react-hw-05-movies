@@ -5,7 +5,8 @@ export const CastListUL = styled.ul`
   flex-wrap: wrap;
   align-items: stretch;
   justify-content: center;
-  margin: -5px;
+
+  margin: -10px;
 `;
 
 export const CastListLI = styled.li`
@@ -13,8 +14,14 @@ export const CastListLI = styled.li`
   flex-direction: column;
   justify-content: baseline;
   max-width: 150px;
-  margin: 5px;
+  background-color: #304040;
+  margin: 10px;
   flex-grow: 1;
+  transition: transform 250ms linear;
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
 `;
 
 export const CastListImg = styled.img`
@@ -30,7 +37,7 @@ export const CastListP = styled.p`
   font-size: 16px;
   font-weight: 500;
   margin-top: 5px;
-  color: black;
+  color: white;
 `;
 
 export const CastListSpan = styled.span`
@@ -39,5 +46,5 @@ export const CastListSpan = styled.span`
   font-size: 12px;
   font-weight: 500;
   margin-top: 5px;
-  color: black;
+  color: white;
 `;

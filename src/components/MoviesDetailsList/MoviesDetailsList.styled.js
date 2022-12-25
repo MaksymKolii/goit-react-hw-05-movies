@@ -7,7 +7,8 @@ export const Title = styled.h2`
   margin: 35px 0 25px 0;
   font-size: 28px;
   font-weight: 500;
-  color: #99a9ff;
+  /* color: #c9d1c8; */
+  color: #5b8075;
   @media (min-width: 768px) {
     margin: 25px 0 55px 0;
   }
@@ -46,12 +47,12 @@ export const Span = styled.span`
   font-size: 18px;
   letter-spacing: 0.1em;
   color: #99a9ff;
-  /* @media (min-width: 768px) {
+  @media (min-width: 768px) {
     font-size: 20px;
   }
   @media (min-width: 1280px) {
     font-size: 24px;
-  } */
+  }
 `;
 export const Div = styled.div`
   display: flex;
@@ -61,12 +62,12 @@ export const Div = styled.div`
   font-size: 18px;
   letter-spacing: 0.1em;
   color: #99a9ff;
-  /* @media (min-width: 768px) {
+  @media (min-width: 768px) {
     font-size: 20px;
   }
   @media (min-width: 1280px) {
     font-size: 24px;
-  } */
+  }
 `;
 
 export const Text = styled.p`
@@ -74,12 +75,12 @@ export const Text = styled.p`
   line-height: 1.45;
   overflow: hidden;
   text-overflow: ellipsis;
-  /* @media (min-width: 768px) {
+  @media (min-width: 768px) {
     font-size: 18px;
   }
   @media (min-width: 1280px) {
     font-size: 20px;
-  } */
+  }
 `;
 
 export const AdditionalTitle = styled.h3`
@@ -87,12 +88,12 @@ export const AdditionalTitle = styled.h3`
   margin-bottom: 30px;
   font-size: 24px;
   color: #99a9ff;
-  /* @media (min-width: 768px) {
+  @media (min-width: 768px) {
     font-size: 26px;
   }
   @media (min-width: 1280px) {
     font-size: 28px;
-  } */
+  }
   &::before {
     content: '';
     display: block;
@@ -106,10 +107,10 @@ export const AdditionalTitle = styled.h3`
       rgba(96, 219, 212, 0.8) 65%,
       rgba(92, 228, 207, 0.15)
     );
-    /* @media (min-width: 768px) {
+    @media (min-width: 768px) {
       width: 750px;
       margin: 0 auto 25px auto;
-    } */
+    }
   }
 `;
 
@@ -124,33 +125,13 @@ export const AdditionalLink = styled(Link)`
   font-size: 20px;
   text-transform: lowercase;
   color: #5ce4cf;
-  /* @media (min-width: 768px) {
+  @media (min-width: 768px) {
     font-size: 22px;
   }
   @media (min-width: 1280px) {
     font-size: 24px;
-  } */
+  }
 `;
-
-// export const StyledContainer = styled(ToastContainer)`
-//   .Toastify__toast {
-//     background-color: #232526;
-//     color: #5ce4cf;
-//     border: 1px solid #99a9ff;
-//   }
-//   .Toastify__close-button {
-//     color: #5ce4cf;
-//   }
-//   .Toastify__progress-bar {
-//     background: linear-gradient(
-//       to right,
-//       rgba(128, 147, 255, 0.25),
-//       rgba(125, 155, 250, 1),
-//       rgba(96, 219, 212, 0.8),
-//       rgba(92, 228, 207, 0.15)
-//     );
-//   }
-// `;
 
 export const Video = styled.iframe`
   width: 280px;

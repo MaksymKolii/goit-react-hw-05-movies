@@ -1,7 +1,7 @@
 import { Genres } from 'components/Genres/Genres';
 import { Loader } from 'components/Loader/Loader';
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import { Video, Div } from './MoviesDetailsList.styled';
+import { Title, Image, Video, Div } from './MoviesDetailsList.styled';
 import PropTypes from 'prop-types';
 
 export const MovieDetailsList = ({ movieInfo }) => {
@@ -32,7 +32,7 @@ export const MovieDetailsList = ({ movieInfo }) => {
   return (
     release_date && (
       <>
-        <h2>
+        <Title>
           {title}
           <span>(</span>
 
@@ -40,8 +40,8 @@ export const MovieDetailsList = ({ movieInfo }) => {
           <span>{year}</span>
 
           <span>)</span>
-        </h2>
-        <img
+        </Title>
+        <Image
           src={
             poster_path
               ? 'https://image.tmdb.org/t/p/w500' + poster_path
@@ -49,7 +49,7 @@ export const MovieDetailsList = ({ movieInfo }) => {
           }
           alt={title}
           width="300"
-        ></img>
+        ></Image>
         <Genres genreArray={genres} />
         <h3>Overview</h3>
         <p>{overview}</p>

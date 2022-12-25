@@ -1,19 +1,27 @@
 import { Outlet } from 'react-router-dom';
 import { Navigation } from 'components/Navigation/Navigation';
-import { Container, Header } from './Layout.styled';
+import { Header } from './Layout.styled';
+import { Container } from '../Container/Container';
+import { Section } from 'components/Section/Section';
 import { Suspense } from 'react';
+import { Loader } from 'components/Loader/Loader';
 
 export const Layout = () => {
   return (
-    <Container>
+    <>
       <Header>
         <Navigation />
       </Header>
-      <Suspense fallback={<div>Loading page...</div>}>
-        <main>
-          <Outlet />
-        </main>
-      </Suspense>
-    </Container>
+
+      <main>
+        <Section>
+          <Container>
+            <Suspense fallback={<Loader />}>
+              <Outlet />
+            </Suspense>
+          </Container>
+        </Section>
+      </main>
+    </>
   );
 };

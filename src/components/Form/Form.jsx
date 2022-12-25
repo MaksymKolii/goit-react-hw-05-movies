@@ -1,4 +1,9 @@
 import PropTypes from 'prop-types';
+import { Form, Input, Button } from './Form.styled';
+
+import { IconContext } from 'react-icons';
+import { VscSearch } from 'react-icons/vsc';
+
 export const SearchForm = ({ formFunc }) => {
   const handleSubmit = ev => {
     ev.preventDefault();
@@ -13,10 +18,24 @@ export const SearchForm = ({ formFunc }) => {
     form.reset();
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="something" />
-      <button>Search</button>
-    </form>
+    <Form onSubmit={handleSubmit}>
+      <Input
+        type="text"
+        name="something"
+        autoComplete="off"
+        placeholder="Put something to find ..."
+      />
+      <Button>
+        <IconContext.Provider
+          value={{
+            size: 25,
+            color: 'tomato',
+          }}
+        >
+          <VscSearch />
+        </IconContext.Provider>
+      </Button>
+    </Form>
   );
 };
 SearchForm.propTypes = {

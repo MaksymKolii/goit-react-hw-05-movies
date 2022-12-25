@@ -5,6 +5,7 @@ import { Layout } from './Layout/Layout';
 import { MovieDetails } from '../Pages/MovieDetails';
 import { Cast } from '../Pages/Cast';
 import { Reviews } from '../Pages/Reviews';
+import { GlobalStyles } from '../utils/GlobalStyles';
 
 export const App = () => {
   return (
@@ -20,6 +21,7 @@ export const App = () => {
         </Route>
         <Route path="*" element={<Home />} />
       </Routes>
+      <GlobalStyles />
     </>
   );
 };

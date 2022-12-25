@@ -1,8 +1,6 @@
-import { Link, useLocation } from 'react-router-dom';
 import { MovieCard } from 'components/MovieCard/MovieCard';
 
 export const MoviesCardList = ({ movies }) => {
-  const location = useLocation();
   return (
     <ul>
       {movies &&
