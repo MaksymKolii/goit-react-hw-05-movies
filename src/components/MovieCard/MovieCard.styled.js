@@ -32,13 +32,14 @@ export const CardBottom = styled.div`
 export const CardTitle = styled.h2`
   font-size: 22px;
   line-height: 1.33;
-  text-align: center;
+  text-align: start;
   color: #4cb5f5;
 `;
 
 export const H4 = styled.h4`
   text-align: start;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
+  margin-top: 5px;
   font-size: 20px;
   color: #c9d1c8;
   font-weight: 400;
