@@ -9,7 +9,7 @@ import {
   Div,
   TitleH3,
   TitleH4,
-  TextP,
+  Span,
   AddInfoLink,
   DivWrap,
   Wrapper,
@@ -27,7 +27,7 @@ export const MovieDetailsList = ({ movieInfo }) => {
     poster_path,
     vote_average,
     overview,
-    tagline,
+    // tagline,
     id,
   } = movieInfo;
 
@@ -69,14 +69,18 @@ export const MovieDetailsList = ({ movieInfo }) => {
 
           <ContextWrap>
             <Genres genreArray={genres} />
-            <TitleH3>Overview</TitleH3>
-            <TextP>{overview}</TextP>
-            <TitleH3>Tagline</TitleH3>
-            <TextP>{tagline}</TextP>
-            <TextP>User score: {normalizeVotes(vote_average)}</TextP>
+            <TitleH3>
+              Overview: <Span>{overview}</Span>
+            </TitleH3>
+
+            {/* <TitleH3>Tagline: </TitleH3> */}
+            {/* <TextP>{tagline}</TextP> */}
+            <TitleH3>
+              User score: <Span>{normalizeVotes(vote_average)}</Span>
+            </TitleH3>
             {videos && videos.results.length !== 0 && (
               <Div>
-                trailer:
+                Trailer:
                 <Video
                   src={`https://www.youtube.com/embed/${getVideo()}`}
                   frameBorder="0"

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const Image = styled.img`
   border-radius: 5px 5px 0 0;
-  width: 200px;
+  width: 300px;
 `;
 
 export const CardLink = styled(Link)`
@@ -33,10 +33,33 @@ export const CardTitle = styled.h2`
   font-size: 22px;
   line-height: 1.33;
   text-align: center;
+  color: #4cb5f5;
 `;
 
-export const Rating = styled.div`
-  margin-top: 15px;
-  display: flex;
-  justify-content: center;
+export const H4 = styled.h4`
+  text-align: start;
+  margin-bottom: 5px;
+  font-size: 20px;
+  color: #c9d1c8;
+  font-weight: 400;
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 22px;
+  }
+`;
+
+export const Span = styled.span`
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  color: #4cb5f5;
+
+  @media (min-width: 768px) {
+    font-size: 18px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 20px;
+  }
 `;

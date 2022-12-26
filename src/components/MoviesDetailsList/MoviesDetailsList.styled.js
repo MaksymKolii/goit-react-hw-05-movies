@@ -39,21 +39,9 @@ export const ContextWrap = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  gap: 10px;
+  gap: 5px;
 `;
 
-// export const Span = styled.span`
-//   font-weight: 500;
-//   font-size: 18px;
-//   letter-spacing: 0.1em;
-//   color: #99a9ff;
-//   @media (min-width: 768px) {
-//     font-size: 20px;
-//   }
-//   @media (min-width: 1280px) {
-//     font-size: 24px;
-//   }
-// `;
 export const Div = styled.div`
   display: flex;
   flex-direction: column;
@@ -61,7 +49,7 @@ export const Div = styled.div`
   font-weight: 500;
   font-size: 18px;
   letter-spacing: 0.1em;
-  color: #99a9ff;
+  color: #4cb5f5;
   @media (min-width: 768px) {
     font-size: 20px;
   }
@@ -70,18 +58,6 @@ export const Div = styled.div`
   }
 `;
 
-export const TextP = styled.p`
-  font-size: 16px;
-  line-height: 1.45;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  @media (min-width: 768px) {
-    font-size: 18px;
-  }
-  @media (min-width: 1280px) {
-    font-size: 16px;
-  }
-`;
 export const TitleH4 = styled.h4`
   text-align: center;
   margin: 15px 0 15px 0;
@@ -91,16 +67,29 @@ export const TitleH4 = styled.h4`
   color: #5b7075;
 `;
 
-export const TitleH3 = styled.h3`
-  text-align: center;
-  margin-bottom: 10px;
-  font-size: 22px;
-  color: #5b7075;
+export const Span = styled.span`
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  color: #4cb5f5;
+
   @media (min-width: 768px) {
-    font-size: 26px;
+    font-size: 18px;
   }
   @media (min-width: 1280px) {
-    font-size: 28px;
+    font-size: 20px;
+  }
+`;
+export const TitleH3 = styled.h3`
+  text-align: start;
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #5b7075;
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1280px) {
+    font-size: 22px;
   }
 `;
 

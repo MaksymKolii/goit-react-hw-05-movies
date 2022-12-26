@@ -1,5 +1,12 @@
 import { useLocation } from 'react-router-dom';
-import { CardLink, CardBottom, CardTitle, Image } from './MovieCard.styled';
+import {
+  CardLink,
+  CardBottom,
+  CardTitle,
+  Image,
+  H4,
+  Span,
+} from './MovieCard.styled';
 
 export const MovieCard = ({ release, title, poster, id }) => {
   const location = useLocation();
@@ -15,12 +22,14 @@ export const MovieCard = ({ release, title, poster, id }) => {
             : 'https://louisville.edu/history/images/noimage.jpg/image'
         }
         alt={title}
-        width="200"
+        width="100%"
         height="100%"
       />
       <CardBottom>
         <CardTitle>{title}</CardTitle>
-        <h4>Release date: {release}</h4>
+        <H4>
+          Release date: <Span>{release}</Span>
+        </H4>
       </CardBottom>
     </CardLink>
   );

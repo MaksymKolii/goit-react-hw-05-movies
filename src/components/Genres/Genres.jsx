@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { TitleH3, Span } from './Genres.styled';
 
 export const Genres = ({ genreArray }) => {
   const commaGenres = data => {
@@ -7,8 +8,7 @@ export const Genres = ({ genreArray }) => {
   };
   return (
     <>
-      <h3>Genres</h3>
-      <p>{`${commaGenres(genreArray)}`}</p>
+      <TitleH3>Genres: {<Span>{`${commaGenres(genreArray)}`}</Span>}</TitleH3>
     </>
 
     // <ul>

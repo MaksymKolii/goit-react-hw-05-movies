@@ -5,7 +5,7 @@ export const ReviewsUl = styled.ul`
   flex-direction: column;
   justify-content: center;
   border-radius: 10px;
-  background-color: lightgray;
+  background-color: #5b7075;
   padding: 10px;
   border-radius: 6px;
   box-shadow: 0 0 5px 1px grey;
@@ -18,8 +18,8 @@ export const ReviewsLi = styled.li`
   margin-top: 10px;
   margin-bottom: 10px;
   border-radius: 10px;
-  /* background-color: #e6e6fa; */
-  background-color: white;
+  background-color: #c9d1c8;
+  /* background-color: white; */
   box-shadow: 0 0 5px 1px black;
 `;
 
@@ -31,6 +31,7 @@ export const ReviewsH4 = styled.h4`
 export const ReviewsP = styled.p`
   display: flex;
   flex-direction: column;
+  color: black;
 `;
 
 export const ReviewsSpan = styled.span`

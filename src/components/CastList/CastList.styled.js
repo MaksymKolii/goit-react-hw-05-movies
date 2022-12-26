@@ -15,6 +15,7 @@ export const CastListLI = styled.li`
   justify-content: baseline;
   max-width: 150px;
   background-color: #304040;
+
   margin: 10px;
   flex-grow: 1;
   transition: transform 250ms linear;
