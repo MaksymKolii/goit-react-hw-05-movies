@@ -34,7 +34,7 @@ button {
   font-family: inherit;
 }
 body {
-   overflow: hidden;
+  
     background-color:  #04202c;
     color: #f4f4f4;
     font-family: 'Rubik', sans-serif;
