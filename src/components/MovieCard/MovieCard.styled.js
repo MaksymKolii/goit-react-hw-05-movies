@@ -14,11 +14,11 @@ export const CardLink = styled(Link)`
   width: 100%;
   border-radius: 5px;
   transition: box-shadow 250ms linear;
-  &:hover,
+  /* &:hover,
   &:focus {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
       1px 4px 6px rgba(0, 0, 0, 0.16);
-  }
+  } */
 `;
 
 export const CardBottom = styled.div`
