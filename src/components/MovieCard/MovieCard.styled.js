@@ -39,28 +39,15 @@ export const CardTitle = styled.h2`
 export const H4 = styled.h4`
   text-align: start;
   margin-bottom: 0px;
-  margin-top: 5px;
-  font-size: 20px;
+  margin-top: 10px;
+  font-size: 16px;
   color: #c9d1c8;
   font-weight: 400;
-  @media (min-width: 768px) {
-    font-size: 20px;
-  }
-  @media (min-width: 1280px) {
-    font-size: 22px;
-  }
 `;
 
 export const Span = styled.span`
   font-weight: 400;
-  font-size: 18px;
+  font-size: 14px;
   letter-spacing: 0.1em;
   color: #4cb5f5;
-
-  @media (min-width: 768px) {
-    font-size: 18px;
-  }
-  @media (min-width: 1280px) {
-    font-size: 20px;
-  }
 `;
