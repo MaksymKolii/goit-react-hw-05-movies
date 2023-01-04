@@ -26,12 +26,13 @@ async function fetchMovieById(movieId) {
   // 'https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US';
   const search = `/movie/${movieId}?${searchParams}`;
 
-  const response = await axios.get(search, {
+  const { data } = await axios.get(search, {
     params: {
       append_to_response: 'videos',
     },
   });
-  return response.data;
+  console.log(data);
+  return data;
 }
 
 async function fetchActors(movieId) {
